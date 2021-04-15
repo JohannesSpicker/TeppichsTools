@@ -1,0 +1,11 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/.idea.TeppichsTools.iml
+/projectSettingsUpdater.xml
+/contentModel.xml
+# Datasource local storage ignored files
+/../../../../../../../:\GitRepos\TeppichsTools\TeppichsTools\.idea\.idea.TeppichsTools\.idea/dataSources/
+/dataSources.local.xml
