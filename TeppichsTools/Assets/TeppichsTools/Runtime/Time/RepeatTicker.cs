@@ -1,4 +1,4 @@
-﻿namespace Tools
+﻿namespace TeppichsTools.Time
 {
     public class RepeatTicker : Ticker
     {
