@@ -17,8 +17,8 @@ namespace TeppichsTools.Creation.Pools
             this.parent = parent;
         }
 
-        public IEnumerable<T> Free  => pool.Where(e => !e.gameObject.activeSelf);
-        public IEnumerable<T> InUse => pool.Where(e => e.gameObject.activeSelf);
+        public IEnumerable<T> Free  => pool.Where(x => !x.gameObject.activeSelf);
+        public IEnumerable<T> InUse => pool.Where(x => x.gameObject.activeSelf);
 
         public T Next()
         {
@@ -29,20 +29,21 @@ namespace TeppichsTools.Creation.Pools
                 return candidate;
             }
 
-            T instanced = Object.Instantiate(prefab, parent);
-            pool.Add(instanced);
-
-            return instanced;
+            return ExtendPool();
         }
 
         public void Release(T released) => released.gameObject.SetActive(false);
 
         public void Cull()
         {
-            foreach (T clutter in Free)
+            foreach (T clutter in Free.ToList())
             {
                 pool.Remove(clutter);
+#if UNITY_EDITOR
+                Object.DestroyImmediate(clutter.gameObject);
+#else
                 Object.Destroy(clutter.gameObject);
+#endif
             }
         }
 
@@ -50,6 +51,23 @@ namespace TeppichsTools.Creation.Pools
         {
             foreach (T element in InUse)
                 Release(element);
+        }
+
+        private T ExtendPool()
+        {
+            T[] newThings = new T[pool.Count + 1];
+
+            for (int i = 0; i < newThings.Length; i++)
+            {
+                newThings[i] = Object.Instantiate(prefab, parent);
+                newThings[i].gameObject.SetActive(false);
+            }
+
+            pool.AddRange(newThings);
+
+            newThings[0].gameObject.SetActive(true);
+
+            return newThings[0];
         }
     }
 }
