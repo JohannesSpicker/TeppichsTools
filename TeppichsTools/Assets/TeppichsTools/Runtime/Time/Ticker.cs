@@ -2,10 +2,12 @@
 {
     public class Ticker
     {
-        private readonly float duration;
-        private          float counter;
+        private float counter;
+        private float duration;
 
         public Ticker(float duration) { this.duration = duration; }
+
+        public float Remaining => duration - counter;
 
         public virtual bool Tick(float delta)
         {
@@ -15,5 +17,7 @@
         }
 
         public void Reset() => counter = 0;
+
+        public void ChangeDuration(float newDuration) => duration = newDuration;
     }
 }

@@ -30,6 +30,8 @@ namespace TeppichsTools.Creation
                     }
                 }
 
+                DontDestroyOnLoad(s_instance.gameObject);
+
                 return s_instance;
             }
         }
