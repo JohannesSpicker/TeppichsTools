@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace TeppichsTools.Runtime.Logging
+namespace TeppichsTools.Logging
 {
     public static class EditorDebug
     {

@@ -1,4 +1,4 @@
-﻿namespace TeppichsTools.Runtime.Creation
+﻿namespace TeppichsTools.Creation
 {
     public abstract class Singleton<T> where T : new()
     {
