@@ -29,9 +29,9 @@ namespace TeppichsTools.Creation
                         Destroy(candidates[i]);
                     }
                 }
-
+#if !UNITY_EDITOR
                 DontDestroyOnLoad(s_instance.gameObject);
-
+#endif
                 return s_instance;
             }
         }
