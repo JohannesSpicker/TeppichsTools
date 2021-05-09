@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace TeppichsTools.Data
 {
     [Serializable]
-    public class Blackboard
+    public class Library
     {
         private Dictionary<Type, Dictionary<string, object>> library =
             new Dictionary<Type, Dictionary<string, object>>();

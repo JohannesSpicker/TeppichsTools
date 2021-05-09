@@ -3,25 +3,25 @@ using TeppichsTools.Data;
 
 namespace TeppichsTools.Editor.Tests
 {
-    public class BlackboardTests
+    public class LibraryTests
     {
         [Test]
         public void ShouldWriteAndReadValue()
         {
-            Setup(out Blackboard blackboard);
+            Setup(out Library library);
 
             string id    = "TestName";
             string value = "TestValue";
 
-            blackboard.Write(id, value);
+            library.Write(id, value);
 
-            Assert.AreEqual(value, blackboard.Read<string>(id));
+            Assert.AreEqual(value, library.Read<string>(id));
         }
 
         [Test]
         public void ShouldWriteAndReadValuesOfDifferentTypes()
         {
-            Setup(out Blackboard blackboard);
+            Setup(out Library library);
 
             string stringId    = "StringTestId";
             string stringValue = "StringTestValue";
@@ -29,20 +29,20 @@ namespace TeppichsTools.Editor.Tests
             string intId    = "IntTestName";
             int    intValue = 42;
 
-            blackboard.Write(stringId, stringValue);
-            blackboard.Write(intId,    intValue);
+            library.Write(stringId, stringValue);
+            library.Write(intId,    intValue);
 
-            Assert.AreEqual((stringValue, intValue), (blackboard.Read<string>(stringId), blackboard.Read<int>(intId)));
+            Assert.AreEqual((stringValue, intValue), (library.Read<string>(stringId), library.Read<int>(intId)));
         }
 
         [Test]
         public void ShouldReturnNullOnWrongID()
         {
-            Setup(out Blackboard blackboard);
+            Setup(out Library library);
             
-            Assert.IsNull(blackboard.Read<string>("id"));
+            Assert.IsNull(library.Read<string>("id"));
         }
 
-        private void Setup(out Blackboard blackboard) => blackboard = new Blackboard();
+        private void Setup(out Library library) => library = new Library();
     }
 }
