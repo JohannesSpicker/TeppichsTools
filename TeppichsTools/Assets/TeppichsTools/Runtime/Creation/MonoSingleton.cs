@@ -25,8 +25,11 @@ namespace TeppichsTools.Creation
                     for (int i = 1; i < candidates.Length; i++)
                     {
                         EditorDebug.LogWarning("Found multiple instances of the MonoSingleton of type " + typeof(T));
-
+#if UNITY_EDITOR
+                        DestroyImmediate(candidates[i]);
+#else
                         Destroy(candidates[i]);
+#endif
                     }
                 }
 #if !UNITY_EDITOR
