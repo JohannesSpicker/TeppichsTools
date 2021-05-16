@@ -43,5 +43,19 @@ namespace TeppichsTools.Data
                 return default;
             }
         }
+
+        public void Delete<T>(string id)
+        {
+            try
+            {
+                library[typeof(T)].Remove(id);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+
+                throw;
+            }
+        }
     }
 }
