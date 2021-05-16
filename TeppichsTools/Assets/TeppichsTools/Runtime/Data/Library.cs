@@ -6,37 +6,36 @@ namespace TeppichsTools.Data
     [Serializable]
     public class Library
     {
-        public Dictionary<Type, Dictionary<string, object>> library =
-            new Dictionary<Type, Dictionary<string, object>>();
+        public OuterDictionary outer = new OuterDictionary();
 
         public Library(Library data)
         {
-            foreach (KeyValuePair<Type, Dictionary<string, object>> typePair in data.library)
+            foreach (KeyValuePair<Type, InnerDictionary> typePair in data.outer)
             {
-                library[typePair.Key] = new Dictionary<string, object>();
+                outer[typePair.Key] = new InnerDictionary();
 
                 foreach (KeyValuePair<string, object> dictPair in typePair.Value)
-                    library[typePair.Key][dictPair.Key] = dictPair.Value;
+                    outer[typePair.Key][dictPair.Key] = dictPair.Value;
             }
         }
 
         public Library() { }
 
-        public void Clear() => library.Clear();
+        public void Clear() => outer.Clear();
 
         public void Write<T>(string id, T value)
         {
-            if (!library.ContainsKey(typeof(T)))
-                library.Add(typeof(T), new Dictionary<string, object>());
+            if (!outer.ContainsKey(typeof(T)))
+                outer.Add(typeof(T), new InnerDictionary());
 
-            library[typeof(T)].Add(id, value);
+            outer[typeof(T)].Add(id, value);
         }
 
         public T Read<T>(string id)
         {
             try
             {
-                return (T) library[typeof(T)][id];
+                return (T) outer[typeof(T)][id];
             }
             catch
             {
@@ -48,7 +47,7 @@ namespace TeppichsTools.Data
         {
             try
             {
-                library[typeof(T)].Remove(id);
+                outer[typeof(T)].Remove(id);
             }
             catch (Exception e)
             {
@@ -57,5 +56,11 @@ namespace TeppichsTools.Data
                 throw;
             }
         }
+
+        [Serializable]
+        public class OuterDictionary : UnitySerializedDictionary<Type, InnerDictionary> { }
+
+        [Serializable]
+        public class InnerDictionary : UnitySerializedDictionary<string, object> { }
     }
 }
