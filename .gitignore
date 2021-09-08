@@ -59,3 +59,10 @@ sysinfo.txt
 crashlytics-build.properties
 
 TeppichsTools/Library/Artifacts
+TeppichsTools/Library/Bee/artifacts
+TeppichsTools/Library/Bee
+TeppichsTools/Logs
+TeppichsTools/Library/PackageCache
+TeppichsTools/Library
+TeppichsTools/obj
+TeppichsTools/Temp
