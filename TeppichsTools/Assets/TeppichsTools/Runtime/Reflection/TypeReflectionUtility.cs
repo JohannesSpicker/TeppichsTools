@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 namespace TeppichsTools.Runtime.Reflection
 {
     public static class TypeReflectionUtility
     {
+        /*
         public static IEnumerable<T> GetEnumerableOfType<T>(params object[] constructorArgs)
             where T : class, IComparable<T>
         {
@@ -21,5 +20,15 @@ namespace TeppichsTools.Runtime.Reflection
 
             return objects;
         }
+        */
+
+        public static Type[] GetSubtypesFromSameAssembly(Type superType) => superType.Assembly.GetTypes()
+            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(superType)).ToArray();
+
+        public static Type[] GetSubtypesFromAllAssemblies(Type superType) =>
+            (from assembly in AppDomain.CurrentDomain.GetAssemblies()
+             from typeInAssembly in assembly.GetTypes()
+             where typeInAssembly.IsSubclassOf(superType) && !typeInAssembly.IsAbstract
+             select typeInAssembly).ToArray();
     }
 }
