@@ -2,8 +2,8 @@
 {
     public class Ticker
     {
-        private float counter;
-        private float duration;
+        protected float counter;
+        private   float duration;
 
         public Ticker(float duration) { this.duration = duration; }
 
