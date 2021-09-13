@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TeppichsTools.Creation
 {
-    public class Monoton<T> : MonoBehaviour where T : MonoBehaviour
+    public abstract class Monoton<T> : MonoBehaviour where T : MonoBehaviour
     {
         private static T s_instance;
 
@@ -32,9 +32,9 @@ namespace TeppichsTools.Creation
 #endif
                     }
                 }
-#if !UNITY_EDITOR
+
                 DontDestroyOnLoad(s_instance.gameObject);
-#endif
+
                 return s_instance;
             }
         }
