@@ -32,9 +32,9 @@ namespace TeppichsTools.Creation
 #endif
                     }
                 }
-
+#if !UNITY_EDITOR
                 DontDestroyOnLoad(s_instance.gameObject);
-
+#endif
                 return s_instance;
             }
         }
