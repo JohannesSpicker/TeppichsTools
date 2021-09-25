@@ -35,11 +35,23 @@ namespace TeppichsTools.Data
         {
             try
             {
-                return (T) outer[typeof(T)][id];
+                return (T)outer[typeof(T)][id];
             }
             catch
             {
                 return default;
+            }
+        }
+
+        public object Read(Type type, string id)
+        {
+            try
+            {
+                return outer[type][id];
+            }
+            catch
+            {
+                return null;
             }
         }
 
