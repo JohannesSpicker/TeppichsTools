@@ -12,10 +12,10 @@ namespace TeppichsTools.Data
                                                                     ISerializationCallbackReceiver
     {
         [SerializeField, HideInInspector]
-        private readonly List<TKey> keyData = new List<TKey>();
+        private List<TKey> keyData = new List<TKey>();
 
         [SerializeField, HideInInspector]
-        private readonly List<TValue> valueData = new List<TValue>();
+        private List<TValue> valueData = new List<TValue>();
 
         void ISerializationCallbackReceiver.OnAfterDeserialize()
         {
