@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TeppichsTools.Data;
+using TeppichsTools.Runtime.Destruction;
+using TeppichsTools.Runtime.UI;
 using UnityEngine;
 
 namespace TeppichsTools.Creation.Pools
 {
-    public class PrefabObjectPool<T> : IObjectPool<T> where T : MonoBehaviour
+    public sealed class PrefabObjectPool<T> : IObjectPool<T> where T : MonoBehaviour
     {
         private readonly Transform parent;
         public readonly  List<T>   pool = new List<T>();
@@ -39,11 +42,7 @@ namespace TeppichsTools.Creation.Pools
             foreach (T clutter in Free.ToList())
             {
                 pool.Remove(clutter);
-#if UNITY_EDITOR
-                Object.DestroyImmediate(clutter.gameObject);
-#else
-                Object.Destroy(clutter.gameObject);
-#endif
+                DestructionHelper.DestroyGameObject(clutter.gameObject);
             }
         }
 

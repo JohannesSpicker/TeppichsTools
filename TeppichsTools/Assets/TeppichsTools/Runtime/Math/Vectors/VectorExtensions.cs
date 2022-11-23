@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
-namespace TeppichsTools.Runtime.Math
+namespace TeppichsTools.Runtime.Math.Vectors
 {
     [SuppressMessage("ReSharper", "InconsistentNaming"), SuppressMessage("ReSharper", "IdentifierTypo")]
     public static class VectorExtensions

@@ -2,7 +2,7 @@
 
 namespace TeppichsTools.Creation.Pools
 {
-    public class ObjectPool<T> : IObjectPool<T> where T : new()
+    public sealed class ObjectPool<T> : IObjectPool<T> where T : new()
     {
         public readonly List<T> free  = new List<T>();
         public readonly List<T> inUse = new List<T>();
