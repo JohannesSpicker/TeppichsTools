@@ -1,6 +1,6 @@
 {
   "name": "com.teppich.teppichstools",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "displayName": "Teppichs Tools",
   "description": "General purpose C#/Unity tools",
   "unity": "2019.1",
