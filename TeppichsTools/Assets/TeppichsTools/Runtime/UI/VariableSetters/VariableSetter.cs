@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TeppichsTools.Runtime.UI
+namespace TeppichsTools.UI.VariableSetters
 {
     public abstract class VariableSetter<T, T1> : MonoBehaviour where T : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 ﻿using TeppichsTools.Behavior;
 using TeppichsTools.UI.Primitives;
 
-namespace TeppichsTools.Runtime.UI.Buttons
+namespace TeppichsTools.UI.Buttons
 {
     public class QuitButton : ButtonSubscriber
     {

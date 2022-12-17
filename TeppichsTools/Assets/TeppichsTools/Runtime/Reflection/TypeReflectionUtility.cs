@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace TeppichsTools.Runtime.Reflection
+namespace TeppichsTools.Reflection
 {
     public static class TypeReflectionUtility
     {

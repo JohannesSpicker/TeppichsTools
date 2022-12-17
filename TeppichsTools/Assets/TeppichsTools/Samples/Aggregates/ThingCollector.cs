@@ -1,3 +1,4 @@
+using TeppichsTools.Behavior;
 using UnityEngine;
 
 [RequireComponent(typeof(Thing))]

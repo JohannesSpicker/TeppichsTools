@@ -1,8 +1,8 @@
-﻿using TeppichsTools.Data;
+﻿using TeppichsTools.UI.Variables;
 using TMPro;
 using UnityEngine;
 
-namespace TeppichsTools.Runtime.UI
+namespace TeppichsTools.UI.VariableSetters
 {
     [RequireComponent(typeof(TMP_Text))]
     public class FontSetter : VariableSetter<TMP_Text, PickedFont>

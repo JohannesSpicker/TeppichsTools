@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TeppichsTools.Runtime.Math.Vectors
+namespace TeppichsTools.Math.Vectors
 {
     public static class VectorHelper
     {

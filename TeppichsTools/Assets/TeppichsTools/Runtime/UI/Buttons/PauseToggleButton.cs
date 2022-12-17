@@ -1,7 +1,7 @@
 ﻿using TeppichsTools.Time;
 using TeppichsTools.UI.Primitives;
 
-namespace TeppichsTools.Runtime.UI.Buttons
+namespace TeppichsTools.UI.Buttons
 {
     public class PauseToggleButton : ButtonSubscriber
     {

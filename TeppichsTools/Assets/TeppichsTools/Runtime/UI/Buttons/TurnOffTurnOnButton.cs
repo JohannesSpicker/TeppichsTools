@@ -2,7 +2,7 @@
 using TeppichsTools.UI.Primitives;
 using UnityEngine;
 
-namespace TeppichsTools.Runtime.UI.Buttons
+namespace TeppichsTools.UI.Buttons
 {
     public class TurnOffTurnOnButton : ButtonSubscriber
     {

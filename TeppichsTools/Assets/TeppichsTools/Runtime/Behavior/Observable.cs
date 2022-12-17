@@ -2,7 +2,7 @@
 
 namespace TeppichsTools.Behavior
 {
-    public class Observable<T>
+    public abstract class Observable<T>
     {
         private T value;
 

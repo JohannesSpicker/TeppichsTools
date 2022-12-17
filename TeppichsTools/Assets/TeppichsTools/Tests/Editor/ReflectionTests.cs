@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using TeppichsTools.Runtime.Reflection;
+using TeppichsTools.Reflection;
 using TeppichsTools.Tests.TestObjects;
 
 namespace TeppichsTools.Editor.Tests

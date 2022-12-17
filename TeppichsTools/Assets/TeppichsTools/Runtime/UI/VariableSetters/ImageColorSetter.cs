@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace TeppichsTools.Runtime.UI
+namespace TeppichsTools.UI.VariableSetters
 {
     [RequireComponent(typeof(Image))]
     internal class ImageColorSetter : ColorSetter<Image>

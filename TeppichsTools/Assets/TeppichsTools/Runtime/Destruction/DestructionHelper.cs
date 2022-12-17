@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TeppichsTools.Runtime.Destruction
+namespace TeppichsTools.Destruction
 {
     public static class DestructionHelper
     {

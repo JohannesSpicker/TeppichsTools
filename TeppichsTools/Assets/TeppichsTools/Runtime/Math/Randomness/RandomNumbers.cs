@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace TeppichsTools.Runtime.Math.Randomness
+namespace TeppichsTools.Math.Randomness
 {
     public static class RandomNumbers
     {
