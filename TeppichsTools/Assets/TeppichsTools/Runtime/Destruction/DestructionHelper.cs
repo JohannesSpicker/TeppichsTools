@@ -12,5 +12,7 @@ namespace TeppichsTools.Destruction
             Object.Destroy(gameObject);
 #endif
         }
+        
+        public static void Destroy(this GameObject gameObject) => DestroyGameObject(gameObject);
     }
 }
