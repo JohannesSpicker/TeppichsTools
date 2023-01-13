@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using TeppichsTools.Data;
 using UnityEngine;
 
 namespace TeppichsTools.Math.Randomness
@@ -15,19 +17,28 @@ namespace TeppichsTools.Math.Randomness
         public static List<int> GetDistinctRandomInts(int amount, Vector2Int range)
         {
             List<int> candidates = new List<int>();
-            List<int> result     = new List<int>();
 
             for (int i = range.x; i < range.y; i++)
                 candidates.Add(i);
 
-            for (int i = 0; i < amount && 0 < candidates.Count; i++)
-            {
-                int index = Random.Range(0, candidates.Count);
-                result.Add(candidates[index]);
-                candidates.Remove(candidates[index]);
-            }
+            return candidates.Shuffle().Take(amount).ToList(); //TODO: test this
+        }
 
-            return result;
+        /// <summary>
+        ///     Get amount random ints in range [x,y[
+        ///     Can return duplicates.
+        /// </summary>
+        /// <param name="amount">amount of ints returned</param>
+        /// <param name="range">min inclusive, max exclusive</param>
+        /// <returns>List of non-distinct ints</returns>
+        public static List<int> GetRandomInts(int amount, Vector2Int range)
+        {
+            List<int> numbers = new List<int>(amount);
+
+            for (int i = 0; i < amount; i++)
+                numbers.Add(ThreadSafeRandom.ThisThreadsRandom.Next(range.x, range.y));
+
+            return numbers;
         }
 
         /// <summary>
