@@ -16,7 +16,7 @@ namespace TeppichsTools.Math.Randomness
         /// <returns>List of distinct ints</returns>
         public static List<int> GetDistinctRandomInts(int amount, Vector2Int range)
         {
-            List<int> candidates = new List<int>();
+            List<int> candidates = new();
 
             for (int i = range.x; i < range.y; i++)
                 candidates.Add(i);
@@ -33,7 +33,7 @@ namespace TeppichsTools.Math.Randomness
         /// <returns>List of non-distinct ints</returns>
         public static List<int> GetRandomInts(int amount, Vector2Int range)
         {
-            List<int> numbers = new List<int>(amount);
+            List<int> numbers = new(amount);
 
             for (int i = 0; i < amount; i++)
                 numbers.Add(ThreadSafeRandom.ThisThreadsRandom.Next(range.x, range.y));
@@ -49,7 +49,7 @@ namespace TeppichsTools.Math.Randomness
         /// <returns>List of floats</returns>
         public static List<float> GetRandomFloats(int amount, Vector2 range)
         {
-            List<float> result = new List<float>(amount);
+            List<float> result = new(amount);
 
             for (int i = 0; i < amount; i++)
                 result[i] = Random.Range(range.x, range.y);
