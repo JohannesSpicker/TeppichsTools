@@ -1,5 +1,7 @@
-﻿using UnityEditor;
-#if !UNITY_EDITOR
+﻿#if UNITY_EDITOR
+using UnityEditor;
+
+#else
 using UnityEngine;
 #endif
 
