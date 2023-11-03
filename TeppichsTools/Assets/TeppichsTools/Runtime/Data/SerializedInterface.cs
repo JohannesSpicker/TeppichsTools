@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TeppichsTools.Data
 {
-    public sealed class SerializedInterface<T> : ISerializationCallbackReceiver where T : Object
+    public sealed class SerializedInterface<T> : ISerializationCallbackReceiver where T : class
     {
         private T backingField;
         private bool hasNoNeedToCast;
