@@ -1,5 +1,8 @@
 using TeppichsTools.Behavior;
 using UnityEngine;
 
-[RequireComponent(typeof(Thing))]
-public class ThingCollector : Collector<Thing> { }
+namespace TeppichsTools.Samples.Aggregates
+{
+	[RequireComponent(typeof(Thing))]
+	public sealed class ThingCollector : Collector<Thing> { }
+}

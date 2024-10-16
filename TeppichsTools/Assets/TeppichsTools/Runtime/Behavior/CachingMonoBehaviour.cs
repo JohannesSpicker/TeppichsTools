@@ -3,7 +3,7 @@
 namespace TeppichsTools.Behavior
 {
 	// ReSharper disable once ClassWithVirtualMembersNeverInherited.Global
-	public class CachingMonoBehaviour : MonoBehaviour
+	public abstract class CachingMonoBehaviour : MonoBehaviour
 	{
 		public Transform  cachedTransform;
 		public GameObject cachedGameObject;

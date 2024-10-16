@@ -2,12 +2,13 @@ using System;
 using TeppichsTools.Data;
 using UnityEngine;
 
-[Serializable]
-public class Thing : MonoBehaviour
+namespace TeppichsTools.Samples.Aggregates
 {
+	[Serializable]
+	public sealed class Thing : MonoBehaviour
+	{
+		[SerializeField] public SomeDictionary bla = new();
+	}
 
-    [SerializeField] public someDictionary bla = new someDictionary();
-
+	public sealed class SomeDictionary : UnitySerializedDictionary<int, int> { }
 }
-
-public class someDictionary : UnitySerializedDictionary<int, int>{}

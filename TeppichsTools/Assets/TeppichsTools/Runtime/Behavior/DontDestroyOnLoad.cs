@@ -2,7 +2,7 @@
 
 namespace TeppichsTools.Behavior
 {
-	public class DontDestroyOnLoad : MonoBehaviour
+	public sealed class DontDestroyOnLoad : MonoBehaviour
 	{
 		private void Awake()
 		{

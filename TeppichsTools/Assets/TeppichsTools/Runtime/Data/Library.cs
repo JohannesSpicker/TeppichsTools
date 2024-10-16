@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace TeppichsTools.Data
 {
 	[Serializable]
-	public class Library
+	public sealed class Library
 	{
 		public OuterDictionary outer = new();
 

@@ -2,12 +2,12 @@
 
 namespace TeppichsTools.Behavior
 {
-	public class Observer<T>
+	public abstract class Observer<T>
 	{
 		private readonly Action<T>     action;
 		private readonly Observable<T> observable;
 
-		public Observer(Observable<T> observable, Action<T> action)
+		protected Observer(Observable<T> observable, Action<T> action)
 		{
 			this.action     = action;
 			this.observable = observable;

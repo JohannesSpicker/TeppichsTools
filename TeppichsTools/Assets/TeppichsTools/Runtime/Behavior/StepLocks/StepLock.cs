@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace TeppichsTools.Behavior.StepLocks
 {
-	public class StepLock
+	public sealed class StepLock
 	{
 		private readonly List<object> lockers = new();
 

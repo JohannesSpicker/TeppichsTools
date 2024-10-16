@@ -2,7 +2,7 @@
 
 namespace TeppichsTools.Behavior.StepLocks
 {
-	public class UnsafeStepLock
+	public sealed class UnsafeStepLock
 	{
 		public bool IsLocked => 0 < LockNumber;
 		public bool IsOpen   => !IsLocked;

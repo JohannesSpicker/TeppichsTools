@@ -1,3 +1,6 @@
 using TeppichsTools.Editor;
 
-public class ThingCollectionVisualizer : CollectionVisualizer<Thing> { }
+namespace TeppichsTools.Samples.Aggregates
+{
+	public sealed class ThingCollectionVisualizer : CollectionVisualizer<Thing> { }
+}

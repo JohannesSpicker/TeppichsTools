@@ -28,25 +28,5 @@ namespace TeppichsTools.Data
 
 			return ret;
 		}
-
-		/*
-		public class CloneableDictionary<TKey, TValue> : Dictionary<TKey, TValue>,  ICloneable where TValue : ICloneable
-		{
-			public static CloneableDictionary<TKey, TValue> AndCast(CloneableDictionary<TKey, TValue> data) =>
-				(CloneableDictionary<TKey, TValue>) Clone(data);
-
-			public object Clone(CloneableDictionary<TKey, TValue> data)
-			{
-				var temp = new CloneableDictionary<TKey, TValue>();
-
-				foreach (var VARIABLE in data)
-				{
-
-				}
-
-				return temp;
-			}
-		}
-		*/
 	}
 }
