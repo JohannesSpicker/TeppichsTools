@@ -1,23 +1,23 @@
 ﻿namespace TeppichsTools.Time
 {
-    public class Ticker
-    {
-        protected float counter;
-        private   float duration;
+	public class Ticker
+	{
+		protected float counter;
+		private   float duration;
 
-        public Ticker(float duration) { this.duration = duration; }
+		public Ticker(float duration) { this.duration = duration; }
 
-        public float Remaining => duration - counter;
+		public float Remaining => duration - counter;
 
-        public virtual bool Tick(float delta)
-        {
-            counter += delta;
+		public virtual bool Tick(float delta)
+		{
+			counter += delta;
 
-            return duration <= counter;
-        }
+			return duration <= counter;
+		}
 
-        public void Reset() => counter = 0;
+		public void Reset() => counter = 0;
 
-        public void ChangeDuration(float newDuration) => duration = newDuration;
-    }
+		public void ChangeDuration(float newDuration) => duration = newDuration;
+	}
 }

@@ -3,5 +3,5 @@ using UnityEngine;
 
 namespace TeppichsTools.UI.VariableSetters
 {
-    internal abstract class ColorSetter<T> : VariableSetter<T, PickedColor> where T : MonoBehaviour { }
+	internal abstract class ColorSetter<T> : VariableSetter<T, PickedColor> where T : MonoBehaviour { }
 }

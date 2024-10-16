@@ -3,17 +3,17 @@ using TeppichsTools.Math.Randomness;
 
 namespace TeppichsTools.Data
 {
-    public static class ListExtensions
-    {
-        public static IList<T> Shuffle<T>(this IList<T> list)
-        {
-            for (int i = list.Count - 1; 0 < i; --i)
-            {
-                int swap = ThreadSafeRandom.ThisThreadsRandom.Next(i + 1);
-                (list[i], list[swap]) = (list[swap], list[i]);
-            }
+	public static class ListExtensions
+	{
+		public static IList<T> Shuffle<T>(this IList<T> list)
+		{
+			for (int i = list.Count - 1; 0 < i; --i)
+			{
+				int swap = ThreadSafeRandom.ThisThreadsRandom.Next(i + 1);
+				(list[i], list[swap]) = (list[swap], list[i]);
+			}
 
-            return list;
-        }
-    }
+			return list;
+		}
+	}
 }

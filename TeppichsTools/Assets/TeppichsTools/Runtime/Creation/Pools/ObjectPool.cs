@@ -2,35 +2,35 @@
 
 namespace TeppichsTools.Creation.Pools
 {
-    public sealed class ObjectPool<T> : IObjectPool<T> where T : new()
-    {
-        public readonly List<T> free  = new List<T>();
-        public readonly List<T> inUse = new List<T>();
-        public readonly List<T> pool  = new List<T>();
+	public sealed class ObjectPool<T> : IObjectPool<T> where T : new()
+	{
+		public readonly List<T> free  = new();
+		public readonly List<T> inUse = new();
+		public readonly List<T> pool  = new();
 
-        public T Next()
-        {
-            foreach (T candidate in free)
-            {
-                free.Remove(candidate);
-                inUse.Add(candidate);
+		public T Next()
+		{
+			foreach (T candidate in free)
+			{
+				free.Remove(candidate);
+				inUse.Add(candidate);
 
-                return candidate;
-            }
+				return candidate;
+			}
 
-            T instanced = new T();
-            pool.Add(instanced);
-            inUse.Add(instanced);
+			T instanced = new();
+			pool.Add(instanced);
+			inUse.Add(instanced);
 
-            return instanced;
-        }
+			return instanced;
+		}
 
-        public void Release(T released)
-        {
-            free.Add(released);
-            inUse.Remove(released);
-        }
+		public void Release(T released)
+		{
+			free.Add(released);
+			inUse.Remove(released);
+		}
 
-        public void Cull() => free.Clear();
-    }
+		public void Cull() => free.Clear();
+	}
 }

@@ -3,15 +3,14 @@ using UnityEngine;
 
 namespace TeppichsTools.Behavior
 {
-    [ExecuteAlways]
-    public class Collector<T> : MonoBehaviour where T : MonoBehaviour
-    {
-        public static List<T> collection = new List<T>();
+	[ExecuteAlways]
+	public class Collector<T> : MonoBehaviour where T : MonoBehaviour
+	{
+		public static List<T> collection = new();
 
-        private T thing;
+		private T thing;
 
-        private void OnEnable() => collection.Add(thing ??= GetComponent<T>());
-
-        private void OnDisable() => collection.Remove(thing);
-    }
+		private void OnEnable()  => collection.Add(thing ??= GetComponent<T>());
+		private void OnDisable() => collection.Remove(thing);
+	}
 }

@@ -3,76 +3,76 @@ using System.Collections.Generic;
 
 namespace TeppichsTools.Data
 {
-    [Serializable]
-    public class Library
-    {
-        public OuterDictionary outer = new OuterDictionary();
+	[Serializable]
+	public class Library
+	{
+		public OuterDictionary outer = new();
 
-        public Library(Library data)
-        {
-            foreach (KeyValuePair<Type, InnerDictionary> typePair in data.outer)
-            {
-                outer[typePair.Key] = new InnerDictionary();
+		public Library(Library data)
+		{
+			foreach (KeyValuePair<Type, InnerDictionary> typePair in data.outer)
+			{
+				outer[typePair.Key] = new InnerDictionary();
 
-                foreach (KeyValuePair<string, object> dictPair in typePair.Value)
-                    outer[typePair.Key][dictPair.Key] = dictPair.Value;
-            }
-        }
+				foreach (KeyValuePair<string, object> dictPair in typePair.Value)
+					outer[typePair.Key][dictPair.Key] = dictPair.Value;
+			}
+		}
 
-        public Library() { }
+		public Library() { }
 
-        public void Clear() => outer.Clear();
+		public void Clear() => outer.Clear();
 
-        public void Write<T>(string id, T value)
-        {
-            if (!outer.ContainsKey(typeof(T)))
-                outer.Add(typeof(T), new InnerDictionary());
+		public void Write<T>(string id, T value)
+		{
+			if (!outer.ContainsKey(typeof(T)))
+				outer.Add(typeof(T), new InnerDictionary());
 
-            outer[typeof(T)].Add(id, value);
-        }
+			outer[typeof(T)].Add(id, value);
+		}
 
-        public T Read<T>(string id)
-        {
-            try
-            {
-                return (T)outer[typeof(T)][id];
-            }
-            catch
-            {
-                return default;
-            }
-        }
+		public T Read<T>(string id)
+		{
+			try
+			{
+				return (T)outer[typeof(T)][id];
+			}
+			catch
+			{
+				return default;
+			}
+		}
 
-        public object Read(Type type, string id)
-        {
-            try
-            {
-                return outer[type][id];
-            }
-            catch
-            {
-                return null;
-            }
-        }
+		public object Read(Type type, string id)
+		{
+			try
+			{
+				return outer[type][id];
+			}
+			catch
+			{
+				return null;
+			}
+		}
 
-        public void Delete<T>(string id)
-        {
-            try
-            {
-                outer[typeof(T)].Remove(id);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
+		public void Delete<T>(string id)
+		{
+			try
+			{
+				outer[typeof(T)].Remove(id);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e);
 
-                throw;
-            }
-        }
+				throw;
+			}
+		}
 
-        [Serializable]
-        public class OuterDictionary : UnitySerializedDictionary<Type, InnerDictionary> { }
+		[Serializable]
+		public class OuterDictionary : UnitySerializedDictionary<Type, InnerDictionary> { }
 
-        [Serializable]
-        public class InnerDictionary : UnitySerializedDictionary<string, object> { }
-    }
+		[Serializable]
+		public class InnerDictionary : UnitySerializedDictionary<string, object> { }
+	}
 }

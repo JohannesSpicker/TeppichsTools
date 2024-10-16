@@ -2,23 +2,23 @@
 
 namespace TeppichsTools.Behavior
 {
-    public abstract class Observable<T>
-    {
-        private T value;
+	public abstract class Observable<T>
+	{
+		private T value;
 
-        public T Value
-        {
-            get => value;
-            set
-            {
-                this.value = value;
-                OnValueChanged?.Invoke(Value);
-            }
-        }
+		public T Value
+		{
+			get => value;
+			set
+			{
+				this.value = value;
+				OnValueChanged?.Invoke(Value);
+			}
+		}
 
-        private event Action<T> OnValueChanged;
+		private event Action<T> OnValueChanged;
 
-        public void Subscribe(Action<T>   observer) => OnValueChanged += observer;
-        public void Unsubscribe(Action<T> observer) => OnValueChanged -= observer;
-    }
+		public void Subscribe(Action<T>   observer) => OnValueChanged += observer;
+		public void Unsubscribe(Action<T> observer) => OnValueChanged -= observer;
+	}
 }

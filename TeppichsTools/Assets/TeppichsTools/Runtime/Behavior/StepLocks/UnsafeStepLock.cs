@@ -2,15 +2,15 @@
 
 namespace TeppichsTools.Behavior.StepLocks
 {
-    public class UnsafeStepLock
-    {
-        public bool IsLocked => 0 < LockNumber;
-        public bool IsOpen   => !IsLocked;
+	public class UnsafeStepLock
+	{
+		public bool IsLocked => 0 < LockNumber;
+		public bool IsOpen   => !IsLocked;
 
-        public int LockNumber { get; private set; }
+		public int LockNumber { get; private set; }
 
-        public void Lock()        => LockNumber++;
-        public void Unlock()      => LockNumber = Mathf.Max(LockNumber - 1, 0);
-        public void ForceUnlock() => LockNumber = 0;
-    }
+		public void Lock()        => LockNumber++;
+		public void Unlock()      => LockNumber = Mathf.Max(LockNumber - 1, 0);
+		public void ForceUnlock() => LockNumber = 0;
+	}
 }

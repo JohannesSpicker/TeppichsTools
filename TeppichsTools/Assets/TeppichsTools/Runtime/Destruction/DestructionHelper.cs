@@ -2,17 +2,17 @@
 
 namespace TeppichsTools.Destruction
 {
-    public static class DestructionHelper
-    {
-        public static void DestroyGameObject(GameObject gameObject)
-        {
+	public static class DestructionHelper
+	{
+		public static void DestroyGameObject(GameObject gameObject)
+		{
 #if UNITY_EDITOR
-            Object.DestroyImmediate(gameObject);
+			Object.DestroyImmediate(gameObject);
 #else
             Object.Destroy(gameObject);
 #endif
-        }
-        
-        public static void Destroy(this GameObject gameObject) => DestroyGameObject(gameObject);
-    }
+		}
+
+		public static void Destroy(this GameObject gameObject) => DestroyGameObject(gameObject);
+	}
 }
